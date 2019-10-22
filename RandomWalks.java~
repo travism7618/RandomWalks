@@ -1,0 +1,35 @@
+import java.io.File;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+class RandomWalks{
+  public static void main(String[] args){
+    
+    short numberOfBlocks
+    int blockLengthInFeet
+    float walkingSpeed //in ft/min.
+    double maximumRedTime //in min.
+
+    /*
+     public static void main(String[] args)
+     Request and receive (with only 1 Scanner object) the following inputs:
+     (First input line:) 
+     (short)  number of blocks
+     (int)    block length in feet
+     (float)  walking speed in ft/min.
+     (double) maximum “red-time” in min.
+     (Second input line:) Student’s full name
+     Invoke the 3 “calc” methods specified below 
+     Output the results BOTH to standard output AND the file RandomWalks.txt [see FileIO.java]
+     */
+      
+      
+    Scanner in = new Scanner(System.in);
+    
+    numberOfBlocks=in.nextInt;
+    
+    
+    
+    
+  }
+}
