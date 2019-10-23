@@ -13,7 +13,6 @@ class RandomWalks {
  */
 
 public static void main(String[] args){
-
         /*
            Request and receive (with only 1 Scanner object) the following inputs:
            (First input line:)
@@ -23,9 +22,7 @@ public static void main(String[] args){
            (double) maximum red-time in min.
            (Second input line:) Students full name
          */
-
         Scanner in = new Scanner(System.in);
-
 
         System.out.print("Please input the number of blocks, block length (in whole feet), walking speed (as ft per min) and the maximum red-time per traffic signal (as min): ");
 
@@ -35,41 +32,41 @@ public static void main(String[] args){
         float walkingSpeed = in.nextFloat(); //in ft/min.
         double maxRedTime = in.nextDouble(); //in min.
 
+
+        System.out.print("What is your full Name? ");
+        in.nextLine();
+        String fullName = in.nextLine();
+
+
+        // For testing purposes
         // short numberOfBlocks = 10;
         // int blockLength = 10;//in feet
         // float walkingSpeed = (float)10.0; //in ft/min.
         // double maxRedTime = 10.0; //in min.
         // in.nextLine();
-        // System.out.print("What is your full Name? ");
-
-
-        // String fullName = in.nextLine();
-        String fullName = "Bob Ross";
-
+        // String fullName = "Bob Ross";
         /*
            Invokes the 3 calc methods specified above
          */
 
+        System.out.println(fullName);
         float shortestTime = calcShortestTime(blockLength, numberOfBlocks, walkingSpeed);
-        // System.out.println(shortestTime);
+        System.out.println(shortestTime);
 
         float randomTime1 = calcRandomTime(blockLength, numberOfBlocks, walkingSpeed, maxRedTime);
-        // System.out.println(randomTime1);
+        System.out.println(randomTime1);
 
         float randomTime2 = calcRandomTime(blockLength, numberOfBlocks, walkingSpeed, maxRedTime);
-        // System.out.println(randomTime2);
+        System.out.println(randomTime2);
 
         float randomTime3= calcRandomTime(blockLength, numberOfBlocks, walkingSpeed, maxRedTime);
-        // System.out.println(randomTime3);
+        System.out.println(randomTime3);
 
         float longestTime = calcLongestTime(blockLength, numberOfBlocks, walkingSpeed,maxRedTime);
-        // System.out.println(longestTime);
+        System.out.println(longestTime);
+
         // System.out.print("\n");
         // System.out.printf("%15s", "Trip Description");
-        System.out.print("blah");
-        System.out.println();
-
-
 
 
         // PrintWriter writer1 = new PrintWriter(new File(""));
@@ -82,17 +79,13 @@ public static void main(String[] args){
 }
 
 public static float calcShortestTime(int blockLength, short numberOfBlocks, float walkingSpeed){
-
-        //
         return (float)(blockLength*numberOfBlocks)/walkingSpeed;
 
 }
 
 
 public static float calcRandomTime(int blockLength, short numberOfBlocks, float walkingSpeed, double maxRedTime){
-
         return (float)((blockLength*numberOfBlocks)/walkingSpeed)+(float)(Math.random()*maxRedTime*numberOfBlocks);
-
 }
 
 public static float calcLongestTime(int blockLength, short numberOfBlocks, float walkingSpeed, double maxRedTime){
