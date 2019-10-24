@@ -1,0 +1,7 @@
+Trip Description         Duration (minutes) 
+_________________        _________________ 
+Shortest Possible        10.000000 
+Random 1                 40.807274 
+Random 2                 18.842606 
+Random 3                 71.879745 
+Longest Possible         110.000000 
