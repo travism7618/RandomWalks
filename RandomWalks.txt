@@ -1,7 +1,9 @@
+Individual:    Bob Ross 
+Number of blocks: 10,   Block Length: 10 ft,  Walking Speed: 10 ft/min., Maximum Red-Time per signal: 10.000000 min. 
 Trip Description         Duration (minutes) 
 _________________        _________________ 
-Shortest Possible        10.000000 
-Random 1                 40.807274 
-Random 2                 18.842606 
-Random 3                 71.879745 
-Longest Possible         110.000000 
+Shortest Possible        10.0 
+Random 1                 70.9 
+Random 2                 55.3 
+Random 3                 47.9 
+Longest Possible         110.0 

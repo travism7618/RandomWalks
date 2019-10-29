@@ -86,14 +86,27 @@ public static void main(String[] args) throws Exception {
 
 
         PrintStream ps  = new PrintStream("RandomWalks.txt");
+        ps.printf("%-15s%s \n","Individual:",fullName);
+        ps.printf("Number of blocks: %d,   Block Length: %d ft,  Walking Speed: %d ft/min., Maximum Red-Time per signal: %f min. \n",numberOfBlocks,blockLength,(int)walkingSpeed,maxRedTime);
         ps.printf("%-25s%s \n","Trip Description","Duration (minutes)");
         ps.printf("%-25s%s \n", "_________________","_________________");
-        ps.printf("%-25s%f \n","Shortest Possible",shortestTime);
-        ps.printf("%-25s%f \n","Random 1",randomTime1);
-        ps.printf("%-25s%f \n","Random 2",randomTime2);
-        ps.printf("%-25s%f \n","Random 3",randomTime3);
-        ps.printf("%-25s%f \n","Longest Possible",longestTime);
+        ps.printf("%-25s%.1f \n","Shortest Possible",shortestTime);
+        ps.printf("%-25s%.1f \n","Random 1",randomTime1);
+        ps.printf("%-25s%.1f \n","Random 2",randomTime2);
+        ps.printf("%-25s%.1f \n","Random 3",randomTime3);
+        ps.printf("%-25s%.1f \n","Longest Possible",longestTime);
         ps.close();
+
+        System.out.printf("%-15s%s \n","Individual:",fullName);
+        System.out.printf("Number of blocks: %d,   Block Length: %d ft,  Walking Speed: %d ft/min., Maximum Red-Time per signal: %f min. \n",numberOfBlocks,blockLength,(int)walkingSpeed,maxRedTime);
+        System.out.printf("%-25s%s \n","Trip Description","Duration (minutes)");
+        System.out.printf("%-25s%s \n", "_________________","_________________");
+        System.out.printf("%-25s%.1f \n","Shortest Possible",shortestTime);
+        System.out.printf("%-25s%.1f \n","Random 1",randomTime1);
+        System.out.printf("%-25s%.1f \n","Random 2",randomTime2);
+        System.out.printf("%-25s%.1f \n","Random 3",randomTime3);
+        System.out.printf("%-25s%.1f \n","Longest Possible",longestTime);
+        System.out.close();
 
 
 }
@@ -110,7 +123,6 @@ public static float calcRandomTime(int blockLength, short numberOfBlocks, float 
 
 
 public static float calcLongestTime(int blockLength, short numberOfBlocks, float walkingSpeed, double maxRedTime){
-
         return (float)((blockLength*numberOfBlocks)/walkingSpeed)+(float)(maxRedTime*numberOfBlocks);
 
 }
