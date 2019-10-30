@@ -6,15 +6,14 @@ import java.util.Scanner;
 
 class RandomWalks {
 /*
-   takes multiple inputs and does math
+   calculates several possible times that it would take for a student to walk to class by taking the number of blocks the person walks, the block length in feet, the speed at which they walk and the max time they would walk and then outputs that information
    @author  Travis Matos
    @version   1.0 , 10/1/19
  */
 
 public static void main(String[] args) throws Exception {
         /*
-           Request and receive (with only 1 Scanner object) the following inputs:
-           (First input line:)
+           This method requests and receive (with only 1 Scanner object) the following inputs:
            (short)  number of blocks
            (int)    block length in feet
            (float)  walking speed in ft/min.
@@ -22,72 +21,41 @@ public static void main(String[] args) throws Exception {
            (Second input line:) Students full name
          */
 
-        // Scanner in = new Scanner(System.in);
-        //
-        // System.out.print("Please input the number of blocks, block length (in whole feet), walking speed (as ft per min) and the maximum red-time per traffic signal (as min): ");
-        //
-        // short numberOfBlocks = in.nextShort();
-        // int blockLength = in.nextInt();//in feet
-        // float walkingSpeed = in.nextFloat(); //in ft/min.
-        // double maxRedTime = in.nextDouble(); //in min.
-        //
-        // System.out.print("What is your full Name? ");
-        // in.nextLine();
-        // String fullName = in.nextLine();
-        //
-        // in.close();
+        // creates new Scanner object
+        Scanner in = new Scanner(System.in);
 
+        // Asks user for number of blocksblock length in feet, walking speed in ft/min, and maximum red-time in min  and stores it within their respective variables
 
-        // For testing purposes
+        System.out.print("Please input the number of blocks, block length (in whole feet), walking speed (as ft per min) and the maximum red-time per traffic signal (as min): ");
+        // invokes methods from scanner object to receive data from user
+        short numberOfBlocks = in.nextShort();
+        int blockLength = in.nextInt();//in feet
+        float walkingSpeed = in.nextFloat(); //in ft/min.
+        double maxRedTime = in.nextDouble(); //in min.
 
-        short numberOfBlocks = 10;
-        int blockLength = 10;//in feet
-        float walkingSpeed = (float)10.0; //in ft/min.
-        double maxRedTime = 10.0; //in min.
-        String fullName = "Bob Ross";
-
+        // Asks for user's name and stores it wihin another variable
+        System.out.print("What is your full Name? ");
+        // avoids the scanner bug by moving the scanner to another new line
+        in.nextLine();
+        String fullName = in.nextLine();
+        in.close();
 
         /*
-           Invokes the 3 calc methods specified above
+           Invokes the 3 calc methods specified below main method and stores them within different variables
          */
-
-        // System.out.println(fullName);
         float shortestTime = calcShortestTime(blockLength, numberOfBlocks, walkingSpeed);
 
-        // System.out.println(shortestTime);
-
         float randomTime1 = calcRandomTime(blockLength, numberOfBlocks, walkingSpeed, maxRedTime);
-        // System.out.println(randomTime1);
-
         float randomTime2 = calcRandomTime(blockLength, numberOfBlocks, walkingSpeed, maxRedTime);
-        // System.out.println(randomTime2);
-
         float randomTime3= calcRandomTime(blockLength, numberOfBlocks, walkingSpeed, maxRedTime);
-        // System.out.println(randomTime3);
 
         float longestTime = calcLongestTime(blockLength, numberOfBlocks, walkingSpeed,maxRedTime);
-        // System.out.println(longestTime);
 
-        /*
-           Individual:   Morris Badrian
-           Number of blocks: 10,   Block Length: 500 ft,  Walking Speed: 175 ft/min., Maximum Red-Time per signal: 0.75 min.
-
-           Trip Description	   Duration (minutes)
-           _________________   __________________
-           Shortest Possible	28.6
-           Random 1	34.8
-           Random 2	35.3s
-           Random 3	31.0
-           Longest Possible	35.3
-
-         */
-
-
-
+        // creates new PrintStream object for the file "RandomWalks.txt" in order to output information into said file.
 
         PrintStream ps  = new PrintStream("RandomWalks.txt");
         ps.printf("%-15s%s \n","Individual:",fullName);
-        ps.printf("Number of blocks: %d,   Block Length: %d ft,  Walking Speed: %d ft/min., Maximum Red-Time per signal: %f min. \n",numberOfBlocks,blockLength,(int)walkingSpeed,maxRedTime);
+        ps.printf("Number of blocks: %d,   Block Length: %d ft,  Walking Speed: %d ft/min, Maximum Red-Time per signal: %f min. \n",numberOfBlocks,blockLength,(int)walkingSpeed,maxRedTime);
         ps.printf("%-25s%s \n","Trip Description","Duration (minutes)");
         ps.printf("%-25s%s \n", "_________________","_________________");
         ps.printf("%-25s%.1f \n","Shortest Possible",shortestTime);
@@ -97,8 +65,9 @@ public static void main(String[] args) throws Exception {
         ps.printf("%-25s%.1f \n","Longest Possible",longestTime);
         ps.close();
 
+        // outputs information to system terminal as well
         System.out.printf("%-15s%s \n","Individual:",fullName);
-        System.out.printf("Number of blocks: %d,   Block Length: %d ft,  Walking Speed: %d ft/min., Maximum Red-Time per signal: %f min. \n",numberOfBlocks,blockLength,(int)walkingSpeed,maxRedTime);
+        System.out.printf("Number of blocks: %d,   Block Length: %d ft,  Walking Speed: %d ft/min, Maximum Red-Time per signal: %.2f min. \n",numberOfBlocks,blockLength,(int)walkingSpeed,maxRedTime);
         System.out.printf("%-25s%s \n","Trip Description","Duration (minutes)");
         System.out.printf("%-25s%s \n", "_________________","_________________");
         System.out.printf("%-25s%.1f \n","Shortest Possible",shortestTime);
@@ -112,18 +81,23 @@ public static void main(String[] args) throws Exception {
 }
 
 public static float calcShortestTime(int blockLength, short numberOfBlocks, float walkingSpeed){
+        // block length multiplied by the number of blocks is equaled to the distance
+        // distance divided by speed is equivalent to the time it tkaes.
         return (float)(blockLength*numberOfBlocks)/walkingSpeed;
+
 
 }
 
 
 public static float calcRandomTime(int blockLength, short numberOfBlocks, float walkingSpeed, double maxRedTime){
         return (float)((blockLength*numberOfBlocks)/walkingSpeed)+(float)(Math.random()*maxRedTime*numberOfBlocks);
+        // the time it takes waiting per block randomized * all blocks + the time it takes to travel  = total time
 }
 
 
 public static float calcLongestTime(int blockLength, short numberOfBlocks, float walkingSpeed, double maxRedTime){
         return (float)((blockLength*numberOfBlocks)/walkingSpeed)+(float)(maxRedTime*numberOfBlocks);
+        // the maximum time it would take waiting per block * all blocks + the time it takes to travel  = total time
 
 }
 
